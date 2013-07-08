@@ -1,4 +1,15 @@
 CalendarApp::Application.routes.draw do
+  
+  resources :users
+
+  get "static_pages/calendar"
+  get "users/new"
+
+  root :to => 'static_pages#home'
+
+  match '/calendar', to: 'static_pages#calendar'
+  match '/signup',   to: 'users#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
